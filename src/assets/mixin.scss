@@ -1,0 +1,36 @@
+@mixin hairline($border-retina-color: #eaeaea) {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  transform: scale(0.5);
+  transform-origin: 0 0;
+  pointer-events: none;
+  box-sizing: border-box;
+  border: 0 solid $border-retina-color;
+  // border-top-width: 1px;
+}
+
+@mixin rightArrow($size: 6px, $border-color: #909090) {
+  position: absolute;
+  content: '';
+  border: 0 solid $border-color;
+  border-top-width: 1px;
+  border-right-width: 1px;
+  width: $size;
+  height: $size;
+  transform: rotate(45deg);
+}
+
+@mixin downArrow($size: 6px, $border-color: #909090) {
+  position: absolute;
+  content: '';
+  border: 0 solid $border-color;
+  border-top-width: 1px;
+  border-right-width: 1px;
+  width: $size;
+  height: $size;
+  transform: rotate(135deg);
+}
