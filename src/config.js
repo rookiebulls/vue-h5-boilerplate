@@ -1,12 +1,12 @@
 const configs = {
   pro: {
-    host: 'https://mairhome.vankeservice.com'
+    host: 'https://mairhome.vankeservice.com/mobile'
   },
   test: {
-    host: 'https://mairhometest.vankeservice.com'
+    host: 'https://mairhometest.vankeservice.com/mobile'
   },
   dev: {
-    host: 'https://mairhomedev.vankeservice.com'
+    host: 'https://mairhomedev.vankeservice.com/mobile'
   }
 }
 
