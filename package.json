@@ -26,7 +26,6 @@
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "clean-webpack-plugin": "^3.0.0",
     "commitizen": "^4.1.2",
-    "compression-webpack-plugin": "^5.0.0",
     "cross-env": "^7.0.2",
     "css-loader": "^4.2.1",
     "cz-conventional-changelog": "^3.2.0",
@@ -75,7 +74,11 @@
     "lint:js": "eslint src/**/*.{js,vue}",
     "lint:css": "stylelint src/**/*.{css,vue,scss}",
     "format": "prettier --write src/**/*.{js,vue,css,scss}",
-    "ci": "git-cz"
+    "ci": "git-cz",
+    "build-img:pro": "docker build --build-arg env=pro -t vue-h5-pro .",
+    "build-img:test": "docker build --build-arg env=test -t vue-h5-test .",
+    "serve:pro": "docker run --rm -it --name vue-h5-pro -p 8888:80 vue-h5-pro",
+    "serve:test": "docker run --rm -it --name vue-h5-test -p 8888:80 vue-h5-test"
   },
   "config": {
     "commitizen": {

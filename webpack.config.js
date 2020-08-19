@@ -8,7 +8,6 @@ const { VueLoaderPlugin } = require('vue-loader')
 const StyleLintPlugin = require('stylelint-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
-const CompressionPlugin = require('compression-webpack-plugin') // gzip compression
 
 const commonConfigs = {
   entry: {
@@ -131,11 +130,6 @@ const proConfigs = {
     new MiniCssExtractPlugin({
       filename: 'css/[name].[contenthash:8].css',
       chunkFilename: 'css/[name].[contenthash:8].css'
-    }),
-    new CompressionPlugin({
-      test: /\.js$|\.html$|\.css$/,
-      threshold: 10240,
-      deleteOriginalAssets: false
     })
   ],
   optimization: {
