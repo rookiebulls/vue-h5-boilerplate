@@ -1,17 +1,19 @@
 const configs = {
   pro: {
-    host: 'https://mairhome.vankeservice.com/mobile'
+    origin: location.origin // change to your production environment origin
   },
   test: {
-    host: 'https://mairhometest.vankeservice.com/mobile'
+    origin: location.origin // change to your test environment origin
   },
   dev: {
-    host: 'https://mairhomedev.vankeservice.com/mobile'
+    origin: location.origin // change to your test environment origin
   }
 }
 
-const path = '/user/'
+const prefixURI = '/api/'
 const baseURL =
-  process.env.NODE_ENV === 'production' ? configs[__DEPLOY_SERVER__].host + path : path
+  process.env.NODE_ENV === 'production'
+    ? configs[__DEPLOY_SERVER__].origin + prefixURI
+    : prefixURI
 
 export default baseURL

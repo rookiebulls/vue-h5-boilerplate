@@ -9,7 +9,7 @@ const http = axios.create({
 
 // auth function
 const getToken = () => {
-  return '3580385039853209#$%$#^34543'
+  return 'whateveritishaha3950325#$#%'
 }
 
 const Toast = msg => {
@@ -31,22 +31,13 @@ http.interceptors.request.use(
 http.interceptors.response.use(
   function (response) {
     const resp = response.data
-    if (resp.data instanceof Blob) {
-      return resp
-    }
+
     const statusCode = response.statusCode
     if (statusCode >= 400 && statusCode < 600) {
       Toast('请求错误')
       return Promise.reject(resp)
     }
-    if (!resp.success) {
-      Toast({
-        message: resp.message,
-        duration: 3000
-      })
-      return Promise.reject(resp)
-    }
-    return resp.data
+    return resp
   },
   function (error) {
     const { message } = error

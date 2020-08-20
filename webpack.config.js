@@ -8,6 +8,9 @@ const { VueLoaderPlugin } = require('vue-loader')
 const StyleLintPlugin = require('stylelint-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const SentryWebpackPlugin = require('@sentry/webpack-plugin')
+
+const __VERSION__ = require('./package.json').version
 
 const commonConfigs = {
   entry: {
@@ -88,7 +91,8 @@ const commonConfigs = {
       }
     }),
     new webpack.DefinePlugin({
-      __DEPLOY_SERVER__: JSON.stringify(process.env.DEPLOY_SERVER || 'pro')
+      __DEPLOY_SERVER__: JSON.stringify(process.env.DEPLOY_SERVER || 'pro'),
+      __VERSION__: JSON.stringify(__VERSION__)
     })
   ]
 }
@@ -102,8 +106,8 @@ const devConfigs = {
   },
   devServer: {
     proxy: {
-      '/user': {
-        target: 'https://mairhometest.vankeservice.com/dev',
+      '/api': {
+        target: 'https://www.v2ex.com',
         changeOrigin: true,
         secure: true
       }
@@ -124,12 +128,18 @@ const devConfigs = {
 
 const proConfigs = {
   mode: 'production',
-  devtool: 'cheap-module-source-map',
+  devtool: 'source-map',
   plugins: [
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: 'css/[name].[contenthash:8].css',
       chunkFilename: 'css/[name].[contenthash:8].css'
+    }),
+    new SentryWebpackPlugin({
+      include: path.join(__dirname, 'dist', 'js'),
+      release: 'release-v' + __VERSION__,
+      urlPrefix: '~/js',
+      ignore: ['node_modules']
     })
   ],
   optimization: {

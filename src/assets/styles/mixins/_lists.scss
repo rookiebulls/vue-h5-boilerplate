@@ -1,0 +1,11 @@
+@import '../vars';
+
+@mixin listItem() {
+  position: relative;
+  list-style-type: none;
+  background: $bgColor;
+  color: $darkColor;
+  font-size: $fontSize;
+  padding: $distanceLg $distance;
+  user-select: none;
+}
