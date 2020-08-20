@@ -24,4 +24,6 @@ ENTRYPOINT ["./docker-entrypoint.sh"]
 
 COPY ./docker-entrypoint.sh ./
 COPY ./nginx.conf /etc/nginx/nginx.conf
+COPY ./default.conf /etc/nginx/conf.d/default.conf
+COPY ./.sentryclirc ~/.sentryclirc
 COPY --from=build-stage /var/www/dist ./html
