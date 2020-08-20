@@ -6,7 +6,7 @@ const configs = {
     origin: location.origin // change to your test environment origin
   },
   dev: {
-    origin: location.origin // change to your test environment origin
+    origin: location.origin // change to your development environment origin
   }
 }
 

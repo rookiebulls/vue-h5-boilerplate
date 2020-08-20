@@ -26,8 +26,6 @@ http.interceptors.request.use(
   }
 )
 
-// 响应拦截器
-
 http.interceptors.response.use(
   function (response) {
     const resp = response.data

@@ -74,6 +74,7 @@
     "build:test": "cross-env NODE_ENV=production DEPLOY_SERVER=test webpack --env.production",
     "build:pro": "cross-env NODE_ENV=production DEPLOY_SERVER=pro webpack --env.production",
     "build": "cross-env NODE_ENV=production DEPLOY_SERVER=pro webpack --env.production",
+    "rm-sourcemap": "node ./remove-sourcemap.js",
     "lint:js": "eslint src/**/*.{js,vue}",
     "lint:css": "stylelint src/**/*.{css,vue,scss}",
     "format": "prettier --write src/**/*.{js,vue,css,scss}",
