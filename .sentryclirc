@@ -1,0 +1,7 @@
+[auth]
+token=fcdb71179a2549cea212a105dbd96b08e66e1e9e81b74a03a7579e3a08a7c96b
+
+[defaults]
+project=vue
+org=sentry
+url=http://10.39.228.84:9000/

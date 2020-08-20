@@ -1,12 +1,14 @@
 {
   "name": "h5",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "h5开发框架",
   "main": "index.js",
   "author": "Leo Xie",
   "license": "MIT",
   "dependencies": {
     "@babel/runtime-corejs3": "^7.11.2",
+    "@sentry/browser": "^5.21.1",
+    "@sentry/integrations": "^5.21.1",
     "axios": "^0.19.2",
     "normalize.css": "^8.0.1",
     "vue": "^2.6.11",
@@ -19,6 +21,7 @@
     "@babel/preset-env": "^7.11.0",
     "@commitlint/cli": "^9.1.2",
     "@commitlint/config-conventional": "^9.1.2",
+    "@sentry/webpack-plugin": "^1.12.1",
     "autoprefixer": "^9.8.6",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.1.0",
@@ -77,8 +80,8 @@
     "ci": "git-cz",
     "build-img:pro": "docker build --build-arg env=pro -t vue-h5-pro .",
     "build-img:test": "docker build --build-arg env=test -t vue-h5-test .",
-    "serve:pro": "docker run --rm -it --name vue-h5-pro -p 8888:80 vue-h5-pro",
-    "serve:test": "docker run --rm -it --name vue-h5-test -p 8888:80 vue-h5-test"
+    "serve:pro": "docker run --rm -it --name vue-h5-pro -p 3000:80 vue-h5-pro",
+    "serve:test": "docker run --rm -it --name vue-h5-test -p 3000:80 vue-h5-test"
   },
   "config": {
     "commitizen": {
